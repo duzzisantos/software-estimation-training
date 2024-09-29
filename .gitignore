@@ -1,0 +1,9 @@
+#env
+.env
+/data_env
+
+#history
+.history
+
+#cache
+/__pycache__
