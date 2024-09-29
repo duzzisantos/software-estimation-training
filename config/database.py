@@ -19,6 +19,8 @@ db = mongo_client.training_result
 # Collections under this this database
 time_series = db["time-series"]
 regression = db["multiple-regression"]
+fetch_db = mongo_client.get_database("software_estimation_bias")
+work_logs = fetch_db.__getitem__("software_work_log")
 
 
 try:
