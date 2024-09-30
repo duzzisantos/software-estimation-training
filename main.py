@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api_services.retreivers.get_task_logs import task_router
+from api_services.retreivers.get_trained_data import task_router
 import uvicorn
 
 app = FastAPI()

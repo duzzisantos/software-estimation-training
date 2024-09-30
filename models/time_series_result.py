@@ -1,15 +1,9 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import List
-
-
-class ResultItems(BaseModel):
-    period: datetime = datetime.isoformat
-    worst_case: list[int]
-    predicted: list[int]
-    best_case: list[int]
+from typing import List, Union
 
 
 class TimeSeriesResult(BaseModel):
-    category: str
-    latest_results: List[dict]
+    task_categories: List[str]
+    predicted_durations: List[Union[float | int]]
+    training_date: datetime = datetime.now()

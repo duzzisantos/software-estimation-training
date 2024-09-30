@@ -27,4 +27,4 @@ try:
     mongo_client.admin.command("ping")
     print("Successfully connected to database")
 except Exception as e:
-    print(e.__cause__())
+    print(e)
