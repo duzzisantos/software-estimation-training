@@ -52,9 +52,14 @@ async def run_pert_analysis(item: PERT):
 
             final_result = {
                 "simulated_operations": simulated_operations,
-                "mean_duration": mean_project_duration,
-                "st_deviation": standard_deviation_duration,
-                "ninetieth_percentile": percentile_90,
+                "predictions": {
+                    "mean_duration": mean_project_duration,
+                    "st_deviation": standard_deviation_duration,
+                    "ninetieth_percentile": percentile_90,
+                },
+                "pessimistic_estimation": item.pessimistic,
+                "most_likely_estimation": item.most_likely,
+                "optimistic_estimation": item.optimistic,
             }
 
             return dict(final_result)
