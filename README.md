@@ -2,11 +2,11 @@
 
 This is a backend application that helps to address one of the classical problems in Information Systems: Software Project Estimation Bias. It seeks to collect data from a client application which logs in individual work logs for sub tasks that make up a bigger task.
 
-As task/work time logs are recorded, they are passed through Machine Learning tools like TensorFlow and Scikit-Learn which are notably applied here to perform time-series forecasts using historical work/task time logs.
+As task/work time logs are recorded, they are passed through Machine Learning tools like TensorFlow, Numpy and Scikit-Learn which are notably applied here to perform time-series forecasts using historical work/task time logs as well as random sampling and probability distribution functions.
 
-These trained data are stored as batch data, to enable client view trained data from the past - with the view of detecting anomalies or deviations in the prediction as well as investigating the causes (which might be outside of the application data's scope. Think - what if there was a layoff, or staff were stationed to other projects - thus prolonging the time required to deliver well-known tasks?).
+The trained time series data are stored as batch data, to enable client view trained data from the past - with the view of detecting anomalies or deviations in the prediction as well as investigating the causes (which might be outside of the application data's scope. Think - what if there was a layoff, or staff were stationed to other projects - thus prolonging the time required to deliver well-known tasks?). To build this data training model, the Long-Term Short-Term Memory recurrent neural network (RNN) is applied, that way we can predict long-term non-linear series.
 
-To build this data training model, the Long-Term Short-Term Memory recurrent neural network (RNN) is applied, that way we can predict long-term non-linear series.
+The PERT analysis is passed through a triangular randomization function and further passed through a Monte Carlo simulation to yield numerous amounts of simulations (10000), a mean duration, standard deviation and duration commonest in the 90th percentile.
 
 ## Tools used
 
