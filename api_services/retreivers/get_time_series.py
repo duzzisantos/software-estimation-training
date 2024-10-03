@@ -6,11 +6,11 @@ from bson import ObjectId
 from typing import List
 
 
-router = APIRouter()
+trained_data = APIRouter()
 
 
 # Retrieves existing data, trains and returns predictive values
-@router.get("/GetTrainedWorkLogs", response_model=List[TimeSeriesResult])
+@trained_data.get("/GetTrainedWorkLogs", response_model=List[TimeSeriesResult])
 async def get_trained_logs():
     output_cursor = time_series.find()
     output = list(output_cursor)

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from config.database import work_logs, time_series
 from models.software_tasks import SoftwareTasks
-from models.time_series_result import TimeSeriesResult
+from models.time_series_result import TimeSeriesResult, InsertResult
 from datetime import datetime
 from utils import task_labels
 import numpy as np
@@ -49,7 +49,7 @@ api_setup_task = formatted_data["api_setup_task"]
 api_integration_task = formatted_data["api_integration_task"]
 data_backup_task = formatted_data["data_backup_task"]
 backend_testing_task = formatted_data["backend_testing_task"]
-data_infrastructure_task = formatted_data["data_intucture_task"]
+data_infrastructure_task = formatted_data["data_structure_task"]
 machine_learning_task = formatted_data["machine_learning_task"]
 scalability_task = formatted_data["scalability_task"]
 optimization_task = formatted_data["optimization_task"]
@@ -194,10 +194,13 @@ predicted_inverse = scaler.inverse_transform(predicted)
 
 
 ## Stores training result in database using database schema
-@task_router.get("/StoreTrainedResults", response_model=TimeSeriesResult)
+@task_router.get("/StoreTrainedResults", response_model=InsertResult)
 async def store_trained_results():
-    return TimeSeriesResult(
+    retrained_result = TimeSeriesResult(
         task_categories=task_labels,
         predicted_durations=predicted_inverse[0],
         training_date=datetime.now(),
     )
+
+    result = time_series.insert_one(dict(retrained_result))
+    return {"id": str(result.inserted_id)}

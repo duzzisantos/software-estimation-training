@@ -13,7 +13,7 @@ class SoftwareTasks(BaseModel):
     api_integration_task: int
     data_backup_task: int
     backend_testing_task: int
-    data_intucture_task: int
+    data_structure_task: int
     machine_learning_task: int
     scalability_task: int
     optimization_task: int

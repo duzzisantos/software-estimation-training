@@ -1,6 +1,6 @@
 import numpy as np
 from typing import Union
-from models.pert_model import PERT, PERTResult
+from models.pert_model import PERT
 from fastapi import APIRouter
 
 
