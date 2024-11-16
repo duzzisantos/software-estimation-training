@@ -7,11 +7,16 @@ import uvicorn
 import os
 import signal
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
+website_url = os.getenv("WEBSITE_URL")
 
 origins = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    website_url,
     ##and other origins: eg production, staging etc
 ]
 
