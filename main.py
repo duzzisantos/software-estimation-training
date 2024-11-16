@@ -1,8 +1,10 @@
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, BackgroundTasks, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from api_services.retreivers.get_trained_data import task_router
 from api_services.retreivers.get_pert import pert_router
 from api_services.retreivers.get_time_series import trained_data
+from fastapi_limiter import FastAPILimiter
+from fastapi_limiter.depends import RateLimiter
 import uvicorn
 import os
 import signal
@@ -38,6 +40,16 @@ def touch_file():
 async def refresh_server(background_tasks: BackgroundTasks):
     background_tasks.add_task(touch_file)
     return {"message": "Server is refreshing..."}
+
+
+@app.get("/", dependencies=[Depends(RateLimiter(times=5, seconds=10))])
+async def index():
+    return {"message": "Too many requests"}
+
+
+@app.post("/", dependencies=[Depends(RateLimiter(times=5, seconds=10))])
+async def index():
+    return {"message": "Too many requests"}
 
 
 app.include_router(task_router)
