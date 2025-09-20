@@ -8,6 +8,10 @@ The trained time series data are stored as batch data, to enable client view tra
 
 The PERT analysis is passed through a triangular randomization function and further passed through a Monte Carlo simulation to yield numerous amounts of simulations (10000), a mean duration, standard deviation and duration commonest in the 90th percentile.
 
+## Research Paper
+See research paper here:
+https://drive.google.com/file/d/1bNhzLDKLmjnZvtZxHhtVjy19-8iR8DUO/view?usp=drive_link
+
 ## Tools used
 
 - Python
