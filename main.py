@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from api_services.retreivers.get_trained_data import task_router
 from api_services.retreivers.get_pert import pert_router
 from api_services.retreivers.get_time_series import trained_data
+from api_services.retreivers.get_regression import regression_router
 import uvicorn
 import os
 import signal
@@ -43,3 +44,4 @@ async def refresh_server(background_tasks: BackgroundTasks):
 app.include_router(task_router)
 app.include_router(pert_router)
 app.include_router(trained_data)
+app.include_router(regression_router)

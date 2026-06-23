@@ -8,7 +8,7 @@ task_labels = [
     "api_integration_task",
     "data_backup_task",
     "backend_testing_task",
-    "data_intucture_task",
+    "data_structure_task",
     "machine_learning_task",
     "scalability_task",
     "optimization_task",
