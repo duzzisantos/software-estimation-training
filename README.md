@@ -20,6 +20,18 @@
 
 Software project estimation is notoriously inaccurate. Teams consistently underestimate effort and timelines — a well-documented phenomenon in information systems research known as **estimation bias**. This service applies statistical and machine learning techniques to historical work logs, producing data-driven forecasts that help developers and project managers make more objective decisions.
 
+## Why It Matters
+
+Organisations and teams must evaluate software project estimation bias to prevent costly misjudgements across four key areas:
+
+- **Risky conclusions** — Biased estimates lead to decisions built on false assumptions. *Example: A team greenlights a product launch based on an underestimated 3-month timeline, only to discover critical features are 6 weeks behind.*
+
+- **Under or over-investment of resources** — Without accurate estimates, teams either stretch too thin or waste budget. *Example: A firm allocates two developers to a backend migration scoped at 4 weeks; the actual effort requires five developers for 8 weeks, stalling other projects.*
+
+- **Missing deadlines** — Optimistic estimates cascade into missed milestones and eroded stakeholder trust. *Example: A client-facing release slips three sprints because API integration was estimated at 2 days but took 2 weeks due to unaccounted complexity.*
+
+- **Encouraging realistic, resource-efficient estimations** — Data-driven estimation replaces guesswork with evidence. *Example: After applying PERT analysis to historical logs, a team adjusts their sprint planning buffer from 10% to 25%, reducing deadline misses by half.*
+
 ---
 
 ## Architecture
