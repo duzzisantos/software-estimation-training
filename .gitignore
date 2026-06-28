@@ -1,9 +1,15 @@
-#env
+# env
 .env
 /data_env
+/venv
 
-#history
+# OS
+.DS_Store
+
+# history
 .history
 
-#cache
-/__pycache__
+# cache
+__pycache__/
+*.pyc
+*.pyo
