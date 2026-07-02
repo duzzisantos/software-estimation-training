@@ -1,7 +1,8 @@
 import numpy as np
 from typing import Union
 from models.pert_model import PERT
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from middleware.auth import require_api_key, require_unlock_key
 
 
 ## Program that estimates time it takes to perform software project time using PERT Analysis and Monte Carlo Simulations
@@ -34,7 +35,7 @@ def monte_carlo_pert(
     return results
 
 
-pert_router = APIRouter()
+pert_router = APIRouter(dependencies=[Depends(require_api_key), Depends(require_unlock_key)])
 
 
 ## API for generating PERT simulation in frontend

@@ -1,5 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from config.database import work_logs, regression
+from middleware.auth import require_api_key, require_unlock_key
 from models.regression_result import RegressionResult, InsertResult
 from datetime import datetime
 from utils import task_labels
@@ -10,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from typing import List
 
 
-regression_router = APIRouter()
+regression_router = APIRouter(dependencies=[Depends(require_api_key), Depends(require_unlock_key)])
 
 
 def _fetch_work_logs():

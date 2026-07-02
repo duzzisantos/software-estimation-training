@@ -1,5 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from config.database import work_logs, time_series
+from middleware.auth import require_api_key, require_unlock_key
 from models.software_tasks import SoftwareTasks
 from models.time_series_result import TimeSeriesResult, InsertResult
 from datetime import datetime
@@ -14,7 +15,7 @@ from typing import List
 from etl.middleware import format_for_timeseries
 
 
-task_router = APIRouter()
+task_router = APIRouter(dependencies=[Depends(require_api_key), Depends(require_unlock_key)])
 
 ## Encapsulate these processes in a task scheduler
 
